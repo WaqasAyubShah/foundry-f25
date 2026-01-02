@@ -86,6 +86,13 @@ This will work as well:
 
 forge create Storage --interactive
 
+Deploy it to Anvil:
+
+forge script script/DeploySmartContract.s.sol --rpc-url http://127.0.0.1:8545
+
+forge script script/DeploySmartContract.s.sol --rpc-url http://127.0.0.1:8545 --broadcast --priva
+te-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
 Available Accounts
 ==================
 
@@ -114,3 +121,19 @@ Private Keys
 (7) 0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356
 (8) 0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97
 (9) 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c
+
+
+A) on safer side, we can create .env file and put our key & url.
+
+To run .env:: source .env
+
+to get key or url: echo $name
+
+B) To get more safety, we will use '--interactive' or a keystore file with a password once foundry adds that. 
+
+
+
+
+echo $PRIVATE_KEY
+
+echo $RPC_URL
