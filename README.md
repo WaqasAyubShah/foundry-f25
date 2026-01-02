@@ -129,11 +129,80 @@ To run .env:: source .env
 
 to get key or url: echo $name
 
-B) To get more safety, we will use '--interactive' or a keystore file with a password once foundry adds that. 
-
-
-
-
 echo $PRIVATE_KEY
 
 echo $RPC_URL
+
+B) To get more safety, we will use '--interactive' or a keystore file with a password once foundry adds that.
+
+We can cast our private key to any other varible & put a password protection.
+
+ERC 2235
+
+Encrypto your keys while developing:
+
+...
+
+cast wallet import defaultkey --interactive
+
+...
+
+Enter private key:
+Enter password: wiki
+
+`defaultkey` keystore was saved successfully. Address: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+
+we can check it by:
+
+...
+
+cast wallet list
+
+...
+
+Now we can access the key by using the command:
+
+...
+
+forge script script/DeploySmartContract.s.sol --rpc-url http://127.0.0.1:8545 --account defaultkey --sender 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 --broadcast -vvvv
+
+Congratulation.
+
+
+we deploy the smart contract to address 
+
+[Success] Hash: 0xa70cc77a13e89ead4fbbb6fea414962ef9b66ef8d6b87a23d2de2e7231b14842
+Contract Address: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+
+now we will send some data: 
+
+use send the transaction:
+
+...
+
+cast send 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+  "store(uint256)" 123
+  --rpc-url $RPC_URL \
+  --private-key $PRIVATE_KEY
+
+...
+
+Now we will send a call to smart contract:
+
+...
+
+cast call 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 \
+
+"retrieve()"
+
+...
+
+So generally it will be:
+
+cast operation address function_name
+
+if convert it to dec.
+
+cast --to-base 0x000000000000000000000000000000000000000000000000000000000000007b dec
+
+we will get 123 back
