@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.8.2 <0.9.0;
+pragma solidity >=0.8.0 <0.9.0;
 
 /**
  * @title Storage
@@ -8,13 +8,12 @@ pragma solidity >=0.8.2 <0.9.0;
  * @custom:dev-run-script ./scripts/deploy_with_ethers.ts
  */
 contract Storage {
-
-    //general declaration way will be 
-    //Type visibality name 
+    //general declaration way will be
+    //Type visibality name
 
     uint256 number;
-    
-    struct Person{
+
+    struct Person {
         uint256 fvrtNumber;
         string name;
     }
@@ -34,19 +33,19 @@ contract Storage {
     }
 
     /**
-     * @dev Return value 
+     * @dev Return value
      * @return value of 'number'
      */
-    function retrieve() public view returns (uint256){
+    function retrieve() public view returns (uint256) {
         return number;
     }
 
-    //calldata, memory, storage 
-    function addPerson(uint256 _fvrtNumber, string memory _name) public{
+    //calldata, memory, storage
+    function addPerson(uint256 _fvrtNumber, string memory _name) public {
         //_name = "hayat";
-        listofPeoples.push(Person(_fvrtNumber, _name));
+        listofPeoples.push(Person({fvrtNumber: _fvrtNumber, name: _name}));
         nametofvrtNumber[_name] = _fvrtNumber;
     }
     //calldata can't be change, but memory and storage can be change, while storage is used for long term storage
-    //memory is used as temprary var. 
+    //memory is used as temprary var.
 }
