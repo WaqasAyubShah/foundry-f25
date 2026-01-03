@@ -205,4 +205,16 @@ if convert it to dec.
 
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000007b dec
 
-we will get 123 back
+we will get 123 back.
+
+forge script script/DeploySmartContract.s.sol
+  --rpc-url $SEPOLIA_RPC_URL
+  --private-key $PRIVATE_KEY
+  --broadcast
+
+Contract address: 0x0B3a7E5474eB376C1DA0940ba60CaDAd18e257C9
+
+verified on etherscan: https://sepolia.etherscan.io/address/0x0B3a7E5474eB376C1DA0940ba60CaDAd18e257C9#code 
+
+Hash: 0xd6c246d772623264f794f957f8c4c463e33dd9489c7bde151cd605dfe60085e5
+Contract Address: 0x0B3a7E5474eB376C1DA0940ba60CaDAd18e257C9
